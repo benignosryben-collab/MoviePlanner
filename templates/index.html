@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-mark">MP</div>
+        <div>
+            <strong>Movie Planner</strong>
+            <span>Find a movie that matches you</span>
+        </div>
+    </div>
+    <div class="tmdb-badge">Powered by TMDB</div>
+</header>
+
+<main>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">PERSONALIZED MOVIE RECOMMENDATIONS</span>
+            <h1>Stop scrolling.<br><span>Find your movie.</span></h1>
+            <p>Answer five quick questions and Movie Planner will match your preferences with movies from The Movie Database.</p>
+            <button id="startBtn" class="primary-btn">Start Planning <span>→</span></button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+            <div class="poster poster-a">🎬</div>
+            <div class="poster poster-b">🍿</div>
+            <div class="poster poster-c">⭐</div>
+        </div>
+    </section>
+
+    <section id="quiz" class="panel hidden">
+        <div class="quiz-top">
+            <div>
+                <span class="eyebrow">MOVIE PLANNER</span>
+                <h2 id="questionTitle"></h2>
+            </div>
+            <span id="progressText">1 / 5</span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="questionHint" class="question-hint"></p>
+        <div id="options" class="options"></div>
+        <div class="quiz-actions">
+            <button id="backBtn" class="secondary-btn">← Back</button>
+            <button id="nextBtn" class="primary-btn" disabled>Next →</button>
+        </div>
+    </section>
+
+    <section id="loading" class="panel loading hidden">
+        <div class="loader"></div>
+        <h2>Finding your movies...</h2>
+        <p>We're comparing your preferences with movie data from TMDB.</p>
+    </section>
+
+    <section id="results" class="results hidden">
+        <div class="results-head">
+            <div>
+                <span class="eyebrow">YOUR RESULTS</span>
+                <h2>Movies picked for you.</h2>
+                <p id="preferenceSummary"></p>
+            </div>
+            <button id="againBtn" class="secondary-btn">↻ Take Again</button>
+        </div>
+        <div id="errorBox" class="error-box hidden"></div>
+        <div id="movieGrid" class="movie-grid"></div>
+        <div class="credits">
+            <p>Movie data and images provided by TMDB.</p>
+            <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        </div>
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
